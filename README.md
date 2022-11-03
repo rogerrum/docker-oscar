@@ -30,7 +30,7 @@ To stop the container simply run:
 ```
 $ docker stop oscar
 ```
-To remove the conainer simply run:
+To remove the container simply run:
 ```
 $ docker rm oscar
 ```
