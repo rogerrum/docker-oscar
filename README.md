@@ -8,7 +8,7 @@
 [![Contributors](https://img.shields.io/github/contributors/rogerrum/docker-oscar.svg)](https://github.com/rogerrum/docker-oscar/graphs/contributors)
 
 
-A Docker image for OSCAR to run inside Docker container and access it remotely using web browser.
+A Docker image for **[OSCAR](https://www.sleepfiles.com/OSCAR/)** to run inside Docker container and access it remotely using web browser.
 
 Repository name in Docker Hub: **[rogerrum/docker-oscar](https://hub.docker.com/r/rogerrum/docker-oscar/)**  
 Published via **automated build** mechanism  
@@ -53,8 +53,12 @@ services:
       - ./oscar-data:/data:rw
 ```
 
-## Issues:
+## Issues
 https://github.com/rogerrum/docker-oscar/issues
+
+## Contribute
+* I am happy for any feedback! Create issues, discussions, ... feel free and involve!
+* Send me a PR
 
 
 Software Licensing Information
