@@ -1,4 +1,4 @@
-FROM golang:1.14-buster AS easy-novnc-build
+FROM golang:1.19-buster AS easy-novnc-build
 WORKDIR /src
 RUN go mod init build && \
     go get github.com/geek1011/easy-novnc@v1.1.0 && \
