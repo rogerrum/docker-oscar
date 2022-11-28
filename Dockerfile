@@ -1,10 +1,10 @@
-FROM golang:1.14-buster AS easy-novnc-build
+FROM golang:1.19-bullseye AS easy-novnc-build
 WORKDIR /src
 RUN go mod init build && \
     go get github.com/geek1011/easy-novnc@v1.1.0 && \
     go build -o /bin/easy-novnc github.com/geek1011/easy-novnc
 
-FROM debian:buster
+FROM debian:bullseye
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends openbox tigervnc-standalone-server supervisor gosu && \
@@ -18,7 +18,7 @@ RUN apt-get update -y && \
 
 
 RUN apt-get update -y && \
-    wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-Debian10_amd64.deb && \
+    wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-Debian11_amd64.deb && \
    apt install -y /tmp/oscar.deb && \
    rm /tmp/oscar.deb && \
    rm -rf /var/lib/apt/lists
