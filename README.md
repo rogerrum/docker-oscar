@@ -21,7 +21,7 @@ To simply do a quick and dirty run of the Oscar container:
 docker run \
     -d --rm \
     --name oscar \
-    -v=./oscar-data:/data \
+    -v=${pwd}/oscar-data:/data \
     --publish=8080:8080 \
      rogerrum/docker-oscar
   
