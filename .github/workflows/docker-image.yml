@@ -68,8 +68,8 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: peter-evans/dockerhub-description@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
           repository: rogerrum/docker-oscar
 
       # Trivy test
