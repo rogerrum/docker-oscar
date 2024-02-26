@@ -13,6 +13,8 @@ A Docker image for **[OSCAR](https://www.sleepfiles.com/OSCAR/)** to run inside 
 
 
 Repository name in Docker Hub: **[rogerrum/docker-oscar](https://hub.docker.com/r/rogerrum/docker-oscar/)**  
+Repository name in ghcr.io: **[ghcr.io/rogerrum/docker-oscar](https://ghcr.io/rogerrum/docker-oscar)**
+
 Published via **automated build** mechanism  
 
 ![img.png](https://raw.githubusercontent.com/rogerrum/docker-oscar/main/.github/demo-img.png)
