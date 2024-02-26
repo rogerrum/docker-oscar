@@ -127,12 +127,6 @@ $ docker-compose up -d
 ```
 cron job is created only when env CRON_HOUR and CRON_MIN are passed.
 
-### Additional Docker image for transferring data (Used as Kube Cron Job)
-
-Repository name in Docker Hub: **[rogerrum/docker-oscar-cron](https://hub.docker.com/r/rogerrum/docker-oscar-cron/)**
-
-Repository name in ghcr.io: **[rogerrum/docker-oscar-cron](https://ghcr.io/rogerrum/docker-oscar-cron)**
-
 ## Issues
 https://github.com/rogerrum/docker-oscar/issues
 
