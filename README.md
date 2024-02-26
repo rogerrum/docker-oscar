@@ -134,6 +134,8 @@ cron job is created only when env CRON_HOUR and CRON_MIN are passed.
 Repository name in Docker Hub: **[rogerrum/docker-oscar-cron](https://hub.docker.com/r/rogerrum/docker-oscar-cron/)**
 Repository name in ghcr.io: **[rogerrum/docker-oscar-cron](https://ghcr.io/rogerrum/docker-oscar-cron)**
 
+This is how I am using the cron on my Kube cluster
+https://github.com/rogerrum/k8s-gitops/blob/main/main/homelab/oscar/templates/cronjob.yaml
 
 
 ## Issues
