@@ -59,7 +59,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: {context}/cron.Dockerfile
+          file: cron.Dockerfile
           platforms: linux/arm64,linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
           tags:  ${{ steps.meta.outputs.tags }}
