@@ -240,3 +240,5 @@ fi
 
 # Sometimes the extension is ALL CAPS for this file and Oscar does not like that
 mv ${mainDir}STR.EDF ${mainDir}STR.edf 2>/dev/null
+
+echo "Processing Completed"
