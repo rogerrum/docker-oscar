@@ -1,6 +1,10 @@
-FROM alpine
+FROM ubuntu
 
-RUN apk add --no-cache bash
+#RUN apk add --no-cache bash
+
+RUN  apt-get update \
+  && apt-get install -y grep sed wget \
+  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir app && mkdir -p /config/SDCARD/
 
