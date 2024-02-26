@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Setting cron"
+if [ ${CRON_HOUR} ]; then
+  echo ${CRON_MIN} ${CRON_HOUR} '* * * /root/etc/s6-overlay/s6-rc.d/ez-share-cron/ezShareDownloader.sh > /proc/1/fd/1 2>/proc/1/fd/2' >>/etc/cron.d/ezShare
+  chmod 0644 /etc/cron.d/ezShare
+  crontab /etc/cron.d/ezShare
+fi
+echo "Done Setting cron"
