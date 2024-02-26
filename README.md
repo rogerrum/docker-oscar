@@ -28,7 +28,7 @@ docker run \
     --name oscar \
     -v=${pwd}/oscar-data:/config/Documents/OSCAR_Data \
     -v=${pwd}/SDCARD:/config/SDCARD \
-    --publish=8080:8080 \
+    --publish=3000:3000 \
      rogerrum/docker-oscar
   
 ```
@@ -54,7 +54,7 @@ services:
     container_name: oscar
     restart: unless-stopped
     ports:
-      - 8080:8080
+      - 3000:3000
     volumes:
       - ./oscar-data:/config/Documents/OSCAR_Data:rw
       - ./SDCARD:/config/SDCARD:rw
@@ -113,7 +113,7 @@ services:
     container_name: oscar
     restart: unless-stopped
     ports:
-      - 8080:8080
+      - 3000:3000
     volumes:
       - ./oscar-data:/config/Documents/OSCAR_Data:rw
       - ./SDCARD:/config/SDCARD:rw
