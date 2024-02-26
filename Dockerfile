@@ -1,37 +1,30 @@
-FROM golang:1.19-bullseye AS easy-novnc-build
-WORKDIR /src
-RUN go mod init build && \
-    go get github.com/geek1011/easy-novnc@v1.1.0 && \
-    go build -o /bin/easy-novnc github.com/geek1011/easy-novnc
+FROM ghcr.io/linuxserver/baseimage-kasmvnc:debianbullseye
 
-FROM debian:bullseye
+ARG TARGETPLATFORM
+ARG TARGETARCH
+ARG TARGETVARIANT
+
+ARG OSCAR_VERSION=1.5.1
+
+RUN printf '%s' "Building for TARGETPLATFORM=${TARGETPLATFORM}" \
+    && printf '%s' ", TARGETARCH=${TARGETARCH}" \
+    && printf '%s' ", TARGETVARIANT=${TARGETVARIANT} \n"
 
 RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends openbox tigervnc-standalone-server supervisor gosu && \
-    rm -rf /var/lib/apt/lists && \
-    mkdir -p /usr/share/desktop-directories
+    apt-get install -y --no-install-recommends wget cron
 
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends lxterminal nano wget openssh-client rsync ca-certificates xdg-utils htop tar xzip gzip bzip2 zip unzip && \
+RUN if [ "${TARGETARCH}" = "arm64" ]; then \
+        wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_${OSCAR_VERSION}-RasPiOS-11_arm64.deb; \
+    else \
+        wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_${OSCAR_VERSION}-Debian11_amd64.deb; \
+    fi
+
+RUN apt install -y /tmp/oscar.deb && \
+    rm /tmp/oscar.deb && \
     rm -rf /var/lib/apt/lists
 
+#RUN apk add --no-cache firefox
+COPY /root /
 
-
-RUN apt-get update -y && \
-    wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_1.4.0-Debian11_amd64.deb && \
-   apt install -y /tmp/oscar.deb && \
-   rm /tmp/oscar.deb && \
-   rm -rf /var/lib/apt/lists
-
-COPY --from=easy-novnc-build /bin/easy-novnc /usr/local/bin/
-COPY menu.xml /etc/xdg/openbox/
-COPY supervisord.conf /etc/
-EXPOSE 8080
-
-RUN groupadd --gid 1000 app && \
-    useradd --home-dir /data --shell /bin/bash --uid 1000 --gid 1000 app && \
-    mkdir -p /data
-
-#VOLUME /data
-
-CMD ["sh", "-c", "chown app:app /data /dev/stdout && exec gosu app supervisord"]
+# ports and volumes
+EXPOSE 3000
