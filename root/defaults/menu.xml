@@ -11,10 +11,5 @@
                 <command>/usr/bin/xterm</command>
             </action>
         </item>
-        <item label="Htop">
-            <action name="Execute">
-                <execute>/usr/bin/x-terminal-emulator -e htop</execute>
-            </action>
-        </item>
     </menu>
 </openbox_menu>
