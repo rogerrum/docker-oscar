@@ -1,10 +1,10 @@
-FROM ghcr.io/linuxserver/baseimage-kasmvnc:debianbullseye
+FROM ghcr.io/linuxserver/baseimage-kasmvnc:debianbookworm
 
 ARG TARGETPLATFORM
 ARG TARGETARCH
 ARG TARGETVARIANT
 
-ARG OSCAR_VERSION=1.5.1
+ARG OSCAR_VERSION=1.5.2
 
 RUN printf '%s' "Building for TARGETPLATFORM=${TARGETPLATFORM}" \
     && printf '%s' ", TARGETARCH=${TARGETARCH}" \
@@ -14,9 +14,9 @@ RUN apt-get update -y && \
     apt-get install -y --no-install-recommends wget cron
 
 RUN if [ "${TARGETARCH}" = "arm64" ]; then \
-        wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_${OSCAR_VERSION}-RasPiOS-11_arm64.deb; \
+        wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_${OSCAR_VERSION}-RasPiOS-12_arm64.deb; \
     else \
-        wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_${OSCAR_VERSION}-Debian11_amd64.deb; \
+        wget -q -O /tmp/oscar.deb https://www.apneaboard.com/OSCAR/oscar_${OSCAR_VERSION}-Debian12_amd64.deb; \
     fi
 
 RUN apt install -y /tmp/oscar.deb && \
