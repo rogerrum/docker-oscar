@@ -30,7 +30,7 @@ mode="normal"
 pDl=16 #default: 8
 
 # Use this program as a ignoreList or a fileList, as you prefer
-fileList=".log|.crc|.tgt|.dat|.edf|DATALOG|SETTINGS"
+fileList=".log|.crc|.tgt|.dat|.edf|.json|DATALOG|SETTINGS"
 #ignoreList=".Spotlight-V100|.Trashes|._.DS_Store|.DS_Store|.fseventsd|Volume|SYSTEM~1|EZSHARE.CFG|Id.txt"                                         
                                                                                                       
 ########### Don't touch the rest ########### ########### ########### ########### ########### ########### ###########
