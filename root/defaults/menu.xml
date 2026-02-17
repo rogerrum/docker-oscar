@@ -6,10 +6,5 @@
                 <execute>/usr/bin/OSCAR</execute>
             </action>
         </item>
-        <item label="xterm" icon="/usr/share/pixmaps/xterm-color_48x48.xpm">
-            <action name="Execute">
-                <command>/usr/bin/xterm</command>
-            </action>
-        </item>
     </menu>
 </openbox_menu>
