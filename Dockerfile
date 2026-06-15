@@ -4,7 +4,8 @@ ARG TARGETPLATFORM
 ARG TARGETARCH
 ARG TARGETVARIANT
 
-ARG OSCAR_VERSION=1.7.1
+ARG OSCAR_FOLDER=2.0
+ARG OSCAR_VERSION=2.0.0
 
 RUN printf '%s' "Building for TARGETPLATFORM=${TARGETPLATFORM}" \
     && printf '%s' ", TARGETARCH=${TARGETARCH}" \
@@ -14,9 +15,9 @@ RUN apt-get update -y && \
     apt-get install -y --no-install-recommends wget cron
 
 RUN if [ "${TARGETARCH}" = "arm64" ]; then \
-        wget -q -O /tmp/oscar.deb https://www.sleepfiles.com/OSCAR/${OSCAR_VERSION}/oscar_${OSCAR_VERSION}-RasPiOS-12_arm64-Qt5.deb; \
+        wget -q -O /tmp/oscar.deb https://www.sleepfiles.com/OSCAR/${OSCAR_FOLDER}/oscar_${OSCAR_VERSION}-RasPiOS-12_arm64-Qt6.deb; \
     else \ 
-        wget -q -O /tmp/oscar.deb https://www.sleepfiles.com/OSCAR/${OSCAR_VERSION}/oscar_${OSCAR_VERSION}-Debian12_amd64-Qt5.deb; \
+        wget -q -O /tmp/oscar.deb https://www.sleepfiles.com/OSCAR/${OSCAR_FOLDER}/oscar_${OSCAR_VERSION}-Debian12_amd64-Qt6.deb; \
     fi
 
 RUN apt install -y /tmp/oscar.deb && \
